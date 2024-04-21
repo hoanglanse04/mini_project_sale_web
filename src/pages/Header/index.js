@@ -1,8 +1,8 @@
-import "../Header/index.css";
+import "./index.css";
 import "../../base.css";
-import { Row,Col } from "antd";
-import {MailOutlined,PhoneOutlined,ShoppingCartOutlined,SearchOutlined,DownOutlined } from '@ant-design/icons';
+import {MailOutlined,PhoneOutlined,ShoppingCartOutlined,SearchOutlined,DownOutlined,MenuOutlined,CloseOutlined } from '@ant-design/icons';
 import { useEffect, useState } from "react";
+import {Link, Outlet} from 'react-router-dom'
 
 
 export default function Header(){
@@ -11,7 +11,6 @@ export default function Header(){
 
     const listItemSelect = document.querySelectorAll('.navigation ul li a');
     listItemSelect.forEach(a =>{
-
       a.addEventListener('click',function(){
         listItemSelect.forEach(item =>{
           item.classList.remove('selected');
@@ -29,7 +28,9 @@ export default function Header(){
         setcategoryData(data);
       })
     },[]);
-    console.log(categoryData);
+
+  
+   
 
     return(
 
@@ -37,17 +38,12 @@ export default function Header(){
         <div className="topHead">
 
             <div className="container">
-              <Row>
-       
-                <Col span={12}>
                   <div className="topHead__login">
                     <h4>SIGN UP</h4>
                     <span>|</span>
                     <h4>SIGN IN</h4>
                   </div>
-                </Col>
 
-                <Col span={12}>
                   <div className="topHead__infor">
                     <div className="topHead__infor--mail">
                       <div className="topHead__infor--mail--icon">
@@ -62,11 +58,7 @@ export default function Header(){
                       <span>1900 6750</span>
 
                     </div>
-                  </div>
-                </Col>
-              </Row>
-
-              
+                  </div> 
             </div>
 
         </div>
@@ -93,12 +85,13 @@ export default function Header(){
         </div>
 
         <div className="navigation">
-            <ul className="container">
-              <li className="navigation__home"><a>Home</a></li>
-              <li className="navigation__about"><a>About</a></li>
+          <div className="container">
+            <ul className="navigation__origin">
+              <li className="navigation__home"><a><Link to='Home' >Home</Link></a></li>
+              <li className="navigation__about"><a><Link to='About' >About</Link></a></li>
               <li className="navigation__products">
                 <div>
-                <a>Products <DownOutlined /></a>
+                <a><Link to='Products' >Products</Link> <DownOutlined /></a>
                 <ul className="products__category">
                   {categoryData.map(item =>(
                     <li className="category__item" key={item}>
@@ -108,9 +101,33 @@ export default function Header(){
                 </ul>
                 </div>
                 </li>
-              <li className="navigation__news"><a>News</a></li>
-              <li className="navigation__contact"><a>Contact</a></li>
+              <li className="navigation__news"><a><Link to='News' >News</Link></a></li>
+              <li className="navigation__contact"><a><Link to='Contact' >Contact</Link></a></li>
             </ul>
+            <div className="navigation__tablet">
+              <MenuOutlined className="button__openNavi" onClick={()=>{
+                document.querySelector('.products__category--tablet').style.display='flex';
+                document.querySelector('.products__category--tablet').classList.add('moveRight');
+              }} />
+              <ul className="products__category--tablet">
+                <CloseOutlined onClick={()=>{
+                  document.querySelector('.products__category--tablet').style.display="none";
+                }} />
+                  {categoryData.map(item =>(
+                    <li className="category__item--tablet" key={item}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div className="midHead__cart">
+                  <div className="midHead__cart--item">
+                    <ShoppingCartOutlined />
+                    <span> ({cartNumber}) products</span>
+                  </div>
+                </div>
+            </div>
+          </div>
+        
        
         </div>
         </>
