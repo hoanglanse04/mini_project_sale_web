@@ -1,4 +1,3 @@
-import Header from "../Header";
 import About from "../About";
 import Contact from "../Contact";
 import News from "../News";
@@ -13,7 +12,7 @@ export const route = [
         element : <Layout></Layout>,
         children :[
             {
-                path: "Home",
+                index: true,
                 element: <Home></Home>
               },
             {

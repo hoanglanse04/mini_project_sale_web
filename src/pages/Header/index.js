@@ -2,8 +2,8 @@ import "./index.css";
 import "../../base.css";
 import {MailOutlined,PhoneOutlined,ShoppingCartOutlined,SearchOutlined,DownOutlined,MenuOutlined,CloseOutlined } from '@ant-design/icons';
 import { useEffect, useState } from "react";
-import {Link, Outlet} from 'react-router-dom'
-
+import {Link} from 'react-router-dom'
+import  logoImg from '../../assets/images/logo.png';
 
 export default function Header(){
 
@@ -65,7 +65,7 @@ export default function Header(){
         <div className="midHead">
           <div className="container">
             <div className="midHead__logo">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZOjEGwhzh3IfpJksuyouWtCIO2Q-g95ucfwrTFIyN23jkOvK45DoMovE7n-T_mE56-eg&usqp=CAU" alt=""></img>
+              <img src={logoImg} alt=""></img>
             </div>
             <div className="midHead__fSearch">
               <form>
@@ -87,7 +87,7 @@ export default function Header(){
         <div className="navigation">
           <div className="container">
             <ul className="navigation__origin">
-              <li className="navigation__home"><a><Link to='Home' >Home</Link></a></li>
+              <li className="navigation__home"><a><Link to='/' >Home</Link></a></li>
               <li className="navigation__about"><a><Link to='About' >About</Link></a></li>
               <li className="navigation__products">
                 <div>
