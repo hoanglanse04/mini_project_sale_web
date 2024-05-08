@@ -1,57 +1,71 @@
 import '../Home/index.css';
-import{ShopOutlined } from  '@ant-design/icons';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
-import { Row,Col } from 'antd';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import promotionImg from '../../assets/images/promotion.jpg';
 import freeShipImg from '../../assets/images/freeship.jpg'
 // http://localhost:3001/products?q=${variable.q}&_page=${variable.page}&_limit=${variable.limit
 
 export default function Home(){
- 
 
-  const variable= {
-    q:"",
-    page:"1",
-    limit:"8",
+  const [listSellProducts, setlistSellProducts] = useState([]);
+  const [listDiscountProducts, setlistDiscountProducts] = useState([]);
 
-  }
-    const [listProducts,setlistProducts] = useState([]); 
+  
 
-      useEffect(()=>{
-        fetch(`http://localhost:3001/products`)
-        .then(res => res.json())
-        .then(data => {
-          setlistProducts(data);
-        })
+  const [visibleSellProducts, setVisibleSellProducts] = useState(8);
+  const [visibleDiscountProducts, setVisibleDiscountProducts] = useState(8);
 
-      },listProducts)
-      
-      console.log(listProducts);
 
+    useEffect(() => {
+    fetch(`http://localhost:3001/products?_limit=${visibleSellProducts}`)
+      .then(res => res.json())
+      .then(data => {
+        setlistSellProducts(data);
+      });
+  }, [visibleSellProducts]);
+  useEffect(() => {
+    fetch(`http://localhost:3001/products?_limit=${visibleDiscountProducts}`)
+      .then(res => res.json())
+      .then(data => {
+        setlistDiscountProducts(data);
+      });
+  }, [visibleDiscountProducts]);
+
+   
+  const showMoreSellProducts = () => {
+    setVisibleSellProducts(visibleSellProducts => visibleSellProducts + 8); 
+  };
+  const showMoreDiscountProducts = () => {
+    setVisibleDiscountProducts(visibleDiscountProducts => visibleDiscountProducts + 8); 
+  };
 
     return(
       <>
         <div className='promotion'>
           <div className='container'>
-            <div className='promotion__img'>
-            <img className='promotion__img--shop' src={promotionImg}></img>
-            <img className='promotion__img--freeship' src={freeShipImg}></img>
-            </div>
+            <Row className='promotion__img'>            
+              <Col   xl={9} lg={9} md={12} sm={12} xs={12}>
+              <img className='promotion__img--shop' src={promotionImg}></img>
+              </Col>
+              <Col xl={3} lg={3} md={12} sm={12} xs={12}>
+              <img className='promotion__img--freeship' src={freeShipImg}></img>
+              </Col>
+            </Row>
           </div>
         </div>
         <div className='main-products'>
           <div className='container'>
             <div className='product__bestseller'>
               <div className='product__bestseller--title'>
-                <ShopOutlined />
+              <i class="bi bi-shop-window"></i>
                 <span className='product__bestseller--text'>Best Seller</span>
               </div>
               <div className='products'>
-                <Row>
-                  {listProducts.filter(item => item.rating >= 4.5).map(
-
-                    item =>(
-                    <Col xxl={6} xl={6} xs={8}>
+                <Row >
+                  {listSellProducts.filter( item => item.rating >4.3).map(item => (
+                    <Col xl={3} lg={3} md={6} sm={6} xs={12} key={item.id}>
                       <div className='product__item'>
                       <h5 className='product__item--discount'>{item.discountPercentage}%</h5>
                         <img src={item.thumbnail}></img>
@@ -62,21 +76,23 @@ export default function Home(){
                       </div>
                     </Col>
                   ))}
+                  <div className='btn__moreProducts'>
+                  <button onClick={showMoreSellProducts} className='load-more'>More...</button>
+                  </div>
                 </Row>
+               
               </div>
             </div>
 
             <div className='product__discount'>
               <div className='product__discount--title'>
-                <ShopOutlined />
+              <i class="bi bi-shop-window"></i>
                 <span className='product__discount--text'>Discount</span>
               </div>
               <div className='products'>
                 <Row>
-                  {listProducts.filter(item => item.discountPercentage >= 10).map(
-
-                    item =>(
-                    <Col xxl={6} xl={6} xs={8}>
+                  {listDiscountProducts.filter(item => item.discountPercentage >= 10).map(item => (
+                    <Col xl={3} lg={3} md={6} sm={6} xs={12} key={item.id}>
                       <div className='product__item'>
                       <h5 className='product__item--discount'>{item.discountPercentage}%</h5>
                         <img src={item.thumbnail}></img>
@@ -87,7 +103,11 @@ export default function Home(){
                       </div>
                     </Col>
                   ))}
+                  <div className='btn__moreProducts'>
+                  <button onClick={showMoreDiscountProducts} className='load-more'>More...</button>
+                  </div>
                 </Row>
+                
               </div>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../Footer/index.css';
-import {TwitterOutlined,InstagramOutlined,FacebookOutlined,YoutubeOutlined  } from  '@ant-design/icons';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 
 export default function Footer() {
@@ -17,12 +17,14 @@ export default function Footer() {
               <li className="topfooter__navi--news"><Link to='/News' >News</Link></li>
               <li className="topfooter__navi--contact"><Link to='/Contact' >Contact</Link></li>
             </ul>
-            <ul className='topfooter__social'>
-              <li><TwitterOutlined /></li>
-              <li><InstagramOutlined /></li>
-              <li><FacebookOutlined /></li>
-              <li><YoutubeOutlined /></li>
+              <ul className='topfooter__social'>
+              <li><i class="bi bi-twitter"></i></li>
+              <li><i class="bi bi-instagram"></i></li>
+              <li><i class="bi bi-facebook"></i></li>
+              <li><i class="bi bi-youtube"></i></li>
             </ul>
+            
+           
           </div>
         </div>
         <div className='mainfooter'>
