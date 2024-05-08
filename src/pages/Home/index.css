@@ -13,13 +13,17 @@
 }
 .promotion__img .promotion__img--shop{
   height: auto;
-  width: 75%;
+  width: 100%;
   margin-right: 5%;
   height: 400px;
+  object-fit: cover;
 }
 .promotion__img .promotion__img--freeship{
-  width: 20%;
+  width: 100%;
   height: 400px;
+  margin: 0 10px;
+  object-fit: cover;
+
 }
 
 /*----------Main-Products--------- */
@@ -31,20 +35,15 @@
   flex-direction: column;
   width: 100%;
 }
-.product__bestseller::before,.product__discount::before{
-  content: "";
-  width: 70%;
-  border-bottom: 1px solid black;
-  position: absolute;
-  margin-top: 29px;
-}
+
 .product__bestseller--title,.product__discount--title{
   display: flex;
-  width: 25%;
+  width: 100%;
   align-items: center;
+  border-bottom: 2px solid rgb(102, 102, 102);
 
 }
-.product__bestseller--title svg,.product__discount--title svg{
+.product__bestseller--title i,.product__discount--title i{
   font-size: 20px;
   color: #ff6131;
   padding: 5px 5px;
@@ -57,6 +56,15 @@
   padding: 5px 5px;
   color: white;
   text-align: center;
+
+}
+.btn__moreProducts{
+  text-align: center;
+  padding: 1rem 0;
+}
+.btn__moreProducts button{
+  background-color: bisque;
+  border-radius: 10px;
 
 }
 .product__bestseller--title::before,.product__discount--title::before{
@@ -77,9 +85,10 @@
 .product__item {
   display: flex;
   flex-direction: column;
-  margin: 10px 10px;
   padding: 10px 10px;
-box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+  height: 100%;
+  box-sizing: border-box;
 }
 .product__item img {
   width: 100%; /* Đặt chiều rộng tối đa cho ảnh */
@@ -107,4 +116,29 @@ box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
   padding: 5px 5px;
   border-radius: 3px;
   margin-top: -5px;
+}
+
+/*---Responsive-- */
+@media (max-width: 62em) and (min-width: 42.25em) {
+  .promotion__img--freeship{
+    display: none;
+  }
+  .container{
+    margin: 0 10% !important;
+  }
+  
+}
+@media (max-width: 42.25em) {
+  .promotion__img--freeship{
+    display: none;
+  }
+  .container{
+    margin:  0 2% !important;
+  }
+  .promotion__img--shop,.promotion__img--freeship{
+    height: 250px !important;
+  }
+  .midHead__cart--item{
+    height: 30px;
+  }
 }

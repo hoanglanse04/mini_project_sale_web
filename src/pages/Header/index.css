@@ -19,7 +19,7 @@
     font-size: 12px;
     color: white;
     font-weight: 400;
-
+    margin: 0 0;
 }
 .topHead__login span{
     color: white;
@@ -42,9 +42,17 @@
     font-size: 12px;
     color: white;
 }
-.topHead__infor span:hover{
+.topHead__infor i{
+    color: white;
+    border: 1px solid white;
+    margin-right: 10px;
+    padding: 5px 5px;
+    border-radius: 50%;
+}
+.topHead__infor i:hover{
     cursor: pointer;
     color: var(--main-color);
+    border: 1px solid var(--main-color);
 }
 
 .topHead__infor--mail,.topHead__infor--phone{
@@ -52,12 +60,7 @@
     flex-direction: row;
     align-items: center;
 }
-.topHead__infor--mail--icon, .topHead__infor--phone--icon{
-    border: 1px solid white;
-    margin-right: 10px;
-    padding: 5px 5px;
-    border-radius: 50%;
-}
+
 /*-----MIDHEAD---------- */
 .midHead{
     display: flex;
@@ -111,8 +114,8 @@
     background-color: rgb(39, 39, 39);
     cursor: pointer;
 }
-.midHead__fSearch button svg{
-    font-size: 20px;
+.midHead__fSearch button i{
+    font-size: 1rem;
     color: white;
 }
 .midHead__cart{
@@ -134,14 +137,17 @@
     height: 80%;
     border-radius: 3px;
     cursor: pointer;
+    align-items: center;
 }
-.midHead__cart svg{
-    font-size: 15px;
+
+.midHead__cart i{
+    font-size: 1.0em;
     color: white;
     margin: 0  10px;
     border: 1px solid white;
     border-radius: 50%;
-    padding: 5px;
+    padding: 0.2rem;
+    box-sizing: border-box;
 }
 
 .midHead__cart span{
@@ -192,7 +198,7 @@
     align-items: center;
     justify-content: center;
 }
-.navigation__products svg{
+.navigation__products i{
     font-size: 15px;
     font-weight: 100;
 }
@@ -260,11 +266,12 @@
     display: none;
 }
 
-.navigation__tablet svg{
+.navigation__tablet i{
+    font-size: 1.75rem;
     cursor: pointer;
     color: rgb(167, 151, 151);
 }
-.products__category--tablet{
+.navigation-tablet__content{
     padding-top: 10%;
     padding-right: 5%;
     display: none;
@@ -274,32 +281,39 @@
     left: 0;
     background-color: #6f7579;  
     height: 100%;  
-    width: 30%;
+    width: 40%;
     margin: 0 0;
-}
-.category__item--tablet{
-    height: 5% !important;
-
+    z-index: 3;
 }
 
-.products__category--tablet span{
+
+.navigation-tablet__content i{
     display: flex;
     justify-content: right;
     margin-bottom: 10px;
-    
+    font-size: 2.5rem !important;
+    color: white;
     
 }
-.products__category--tablet svg{
-    color: aliceblue;
-    font-size: 30px !important;
+ .navigation__item{
+    border-top:2px solid white;
+    margin: 0 0 !important;
+    height: 8% !important;
+} 
+.navigation__item:hover{
+    color: var(--main-color);
 }
-.category__item--tablet::before{
-    position: absolute;
-    content: "";
-    width: 80%;
-    height: 1px;
-    border-top: 1px solid rgb(200, 197, 192);
-    margin-top: -10%;
+.navigation-tablet__content li{
+    display: flex;
+    flex-direction: row;
+    align-items: center
+}
+.navigation__item .bi-chevron-down{
+    font-size: 1rem !important;
+    margin: 0;
+}
+.item__category{
+    display: none;
 }
 @keyframes moveRight {
     0% { transform: translateX(-500px); }
@@ -343,7 +357,7 @@
     height: 100%;
     align-items: center;
 }
-.navigation__tablet svg{
+.navigation__tablet i{
     font-size: 25px;
 }
 .navigation__tablet .midHead__cart{
@@ -398,7 +412,7 @@
         padding: 3px 0;
 
     }
-    .midHead__cart--item svg{
+    .midHead__cart--item i{
         font-size: 15px;
         color: white;
         margin: 0  10px;
@@ -406,6 +420,9 @@
         border-radius: 50%;
         padding: 5px;
     }
+    .bi-cart {
+        font-size: 12px !important; /* Kích thước còn nhỏ hơn */
+      }   
 }
 
 @media (max-width:576px){
@@ -468,4 +485,9 @@
     .container{
         margin:  0 2% !important;
     }
+    .bi-cart {
+        font-size: 12px !important; /* Kích thước còn nhỏ hơn */
+      }   
+
+   
 }

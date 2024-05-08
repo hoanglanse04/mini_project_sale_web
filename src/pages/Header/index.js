@@ -1,6 +1,6 @@
 import "./index.css";
 import "../../base.css";
-import {MailOutlined,PhoneOutlined,ShoppingCartOutlined,SearchOutlined,DownOutlined,MenuOutlined,CloseOutlined } from '@ant-design/icons';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import { useEffect, useState } from "react";
 import {Link} from 'react-router-dom'
 import  logoImg from '../../assets/images/logo.png';
@@ -8,6 +8,10 @@ import  logoImg from '../../assets/images/logo.png';
 export default function Header(){
 
     var cartNumber=0;
+    const handleClickNavi = () =>{
+      const navigationTablet  = document.querySelector('.navigation-tablet__content');
+      navigationTablet.style.display='none';
+    }
 
     const listItemSelect = document.querySelectorAll('.navigation ul li a');
     listItemSelect.forEach(a =>{
@@ -29,7 +33,7 @@ export default function Header(){
       })
     },[]);
 
-  
+    
    
 
     return(
@@ -47,13 +51,13 @@ export default function Header(){
                   <div className="topHead__infor">
                     <div className="topHead__infor--mail">
                       <div className="topHead__infor--mail--icon">
-                        <MailOutlined/>
+                      <i class="bi bi-envelope"></i>
                       </div>
                       <span>support@sapo.vn</span>
                     </div>
                     <div className="topHead__infor--phone">
                       <div className="topHead__infor--phone--icon">
-                        <PhoneOutlined/>
+                       <i class="bi bi-telephone"></i>
                       </div>
                       <span>1900 6750</span>
 
@@ -71,14 +75,14 @@ export default function Header(){
               <form>
                 <input type="text" placeholder="Search" ></input>
                 <button type="submit">
-                <SearchOutlined />
+                <i class="bi bi-search"></i>
                 </button>
               </form>
             </div>
             <div className="midHead__cart">
               <div className="midHead__cart--item">
-              <ShoppingCartOutlined />
-              <span> ({cartNumber}) products</span>
+              <i class="bi bi-cart"></i>
+            <span> ({cartNumber}) products</span>
               </div>
             </div>
           </div>
@@ -91,7 +95,7 @@ export default function Header(){
               <li className="navigation__about"><a><Link to='About' >About</Link></a></li>
               <li className="navigation__products">
                 <div>
-                <a><Link to='Products' >Products</Link> <DownOutlined /></a>
+                <a><Link to='Products' >Products</Link><i class="bi bi-chevron-down"></i></a>
                 <ul className="products__category">
                   {categoryData.map(item =>(
                     <li className="category__item" key={item}>
@@ -105,23 +109,26 @@ export default function Header(){
               <li className="navigation__contact"><a><Link to='Contact' >Contact</Link></a></li>
             </ul>
             <div className="navigation__tablet">
-              <MenuOutlined className="button__openNavi" onClick={()=>{
-                document.querySelector('.products__category--tablet').style.display='flex';
-                document.querySelector('.products__category--tablet').classList.add('moveRight');
-              }} />
-              <ul className="products__category--tablet">
-                <CloseOutlined onClick={()=>{
-                  document.querySelector('.products__category--tablet').style.display="none";
-                }} />
-                  {categoryData.map(item =>(
-                    <li className="category__item--tablet" key={item}>
-                      {item}
+              <i class="bi bi-list button__openNavi" onClick={()=>{
+                document.querySelector('.navigation-tablet__content').style.display='flex';
+                document.querySelector('.navigation-tablet__content').classList.add('moveRight');
+              }}></i>
+              
+              <ul className="navigation-tablet__content">
+                <i class="bi bi-x" onClick={()=>{
+                  document.querySelector('.navigation-tablet__content').style.display="none";
+                }}></i>
+                  <li className="navigation__item" onClick={handleClickNavi}><a><Link to='/' >Home</Link></a></li>
+                  <li className="navigation__item" onClick={handleClickNavi}><a><Link to='About' >About</Link></a></li>
+                  <li className="navigation__item" onClick={handleClickNavi}>
+                    <a><Link to='Products' >Products</Link></a><i class="bi bi-chevron-down"></i>
                     </li>
-                  ))}
+                  <li className="navigation__item" onClick={handleClickNavi}><a><Link to='News' >News</Link></a></li>
+                  <li className="navigation__item" onClick={handleClickNavi}><a><Link to='Contact' >Contact</Link></a></li>
                 </ul>
                 <div className="midHead__cart">
                   <div className="midHead__cart--item">
-                    <ShoppingCartOutlined />
+                  <i class="bi bi-cart"></i>
                     <span> ({cartNumber}) products</span>
                   </div>
                 </div>
