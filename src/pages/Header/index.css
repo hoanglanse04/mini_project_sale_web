@@ -3,6 +3,7 @@
     background:linear-gradient(120deg,#3fb4fb 50%, #383838 50%);
 
 }
+
 .topHead .container{
     height: 100%;
     display: flex;
@@ -70,7 +71,6 @@
 
 }
 .midHead .container{
-    margin: 0 10%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -167,7 +167,6 @@
 
 }
 .navigation .container{
-    margin: 0 10%;
     height: 100%;
 }
 .navigation .navigation__origin{
@@ -263,7 +262,9 @@
     height: 25px;
 }
 .navigation__tablet{
+    box-sizing: border-box;
     display: none;
+    width: 100%;
 }
 
 .navigation__tablet i{
@@ -315,6 +316,47 @@
 .item__category{
     display: none;
 }
+
+
+/*---serivice----- */
+.service{
+    padding: 50px 0;
+    background-color: var(--main-color);
+}
+.service__card{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.service__card i{
+    color: white;
+    font-size: 1.2em;
+}
+.service__card--icon{
+    width: 5rem;
+    height: 5rem;
+    padding: em 1em;
+    border: 1px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+}
+.service__card h5{
+    font-size: 1em;
+    font-weight: 700;
+    color: white;
+    margin: 5px 0;
+}
+.service__card h6{
+    color: white;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
 @keyframes moveRight {
     0% { transform: translateX(-500px); }
     100% { transform: translateX(0); }
@@ -329,9 +371,7 @@
 }
 /*----BreakPoint--- */
 @media (min-width:769px) and (max-width:992px){
-.topHead .container {
-    margin: 0 10%;
-}
+
 .topHead__login{
     margin: 0 0;
 }
@@ -378,7 +418,6 @@
     .midHead .container{
         display: flex;
         flex-direction: column;
-        margin: 0 10%;
         height: 100px;
     }
     .midHead .midHead__fSearch form{
@@ -396,6 +435,8 @@
     height: 100%;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
+
     }
     .navigation__tablet svg{
     font-size: 25px;
@@ -459,6 +500,8 @@
     height: 100%;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
+
     }
     .navigation__tablet svg{
     font-size: 25px;
@@ -482,9 +525,7 @@
         border-radius: 50%;
         padding: 5px;
     }
-    .container{
-        margin:  0 2% !important;
-    }
+ 
     .bi-cart {
         font-size: 12px !important; /* Kích thước còn nhỏ hơn */
       }   

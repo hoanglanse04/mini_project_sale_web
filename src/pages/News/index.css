@@ -1,0 +1,28 @@
+.news{
+  padding: 50px 0;
+}
+.news h3 {
+  margin: 2rem 0;
+  font-size: 1.5rem;
+}
+.news__item{
+  display: flex;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgb(201, 201, 189);
+}
+.news__item img{
+  height: 15rem;
+  width: 30%;
+  object-fit: cover;
+}
+
+.item__desc{
+  padding: 0 1rem;
+}
+.item__desc h4{
+  font-size: 1.25rem;
+  color: var(--second-text-color);
+}
+.item__desc h4:hover{
+  color: var(--main-color);
+}
