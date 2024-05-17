@@ -67,7 +67,7 @@ export default function Home(){
                   {listSellProducts.filter( item => item.rating >4.3).map(item => (
                     <Col xl={3} lg={3} md={6} sm={6} xs={12} key={item.id}>
                       <div className='product__item'>
-                      <h5 className='product__item--discount'>{item.discountPercentage}%</h5>
+                      <h5 className='product__item--discount'>{item.rating}<i class="bi bi-star-fill"></i></h5>
                         <img src={item.thumbnail}></img>
                         <div className='product__item--desc'>
                           <h5 className='product__item--name'>{item.title}</h5>
@@ -110,6 +110,49 @@ export default function Home(){
                 
               </div>
             </div>
+          </div>
+        </div>
+        <div className='service'>
+          <div className='container'>
+            <Row>
+              <Col className='service__card' xl={3} lg ={3} md={12} sm={12} >
+              <div className='service__card--icon'>
+                <i class="bi bi-truck"></i>
+              </div>
+              <div className='card__desc'>
+                <h5>FREE SHIP</h5>
+                <h6>With orders over 3 milion </h6>
+              </div>
+              </Col>
+              <Col className='service__card' xl={3} lg ={3} md={12} sm={12} >
+              <div className='service__card--icon'>
+               <i class="bi bi-arrow-repeat"></i>
+               </div>
+              <div className='card__desc'>
+                <h5>EXCHANGE GOODS</h5>
+                <h6>within 3 days</h6>
+              </div>
+              </Col>
+              <Col className='service__card' xl={3} lg ={3} md={12} sm={12} >
+              <div className='service__card--icon'>
+              <i class="bi bi-calendar-fill"></i>
+              </div>
+              <div className='card__desc'>
+                <h5>REFUND</h5>
+                <h6>if there is an error</h6>
+               </div>
+              </Col>
+              <Col className='service__card' xl={3} lg ={3} md={12} sm={12} >
+              <div className='service__card--icon'>
+              <i class="bi bi-people-fill"></i>
+              </div>
+              <div className='card__desc'>
+                <h5>SUPPORT 24/7</h5>
+                <h6>035123456</h6>
+                </div>
+
+              </Col>
+            </Row>
           </div>
         </div>
       </>
