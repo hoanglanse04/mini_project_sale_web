@@ -1,4 +1,4 @@
-import { route } from "../../pages/route";
+import { route } from "../route";
 import { useRoutes } from "react-router-dom";
 
 
