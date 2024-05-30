@@ -28,7 +28,7 @@ export default function Aticle_02 (){
         <p>- After 24 hours of idling, use a damp cloth to clean the entire inside surface of the cabinet.</p>
         <p>- Start putting food in the refrigerator and use it normally.</p>
         
-        <strong>2. 2. During use</strong>
+        <strong>2. During use</strong>
         <p>While using the refrigerator, you should clean the refrigerator properly every week to remove stains and potential bacteria inside and outside the refrigerator. When cleaning the refrigerator, you need:</p>
         <p>- Turn off the power source and take all food out.</p>
         <p>- Use a soft cloth to gently wipe the inside surface of the refrigerator. Avoid using any sharp objects to scrape, pry off snow and stains in the refrigerator to avoid damaging the evaporator in the refrigerator.</p>
