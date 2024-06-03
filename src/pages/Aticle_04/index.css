@@ -1,0 +1,18 @@
+.share li{
+  list-style: none;
+  padding: 0 0.5rem;
+}
+.article{
+  padding: 50px 0;
+}
+
+.aticle__title{
+  color: var(--second-text-color);
+  padding-bottom: 50px ;
+}
+.aticle__title img{
+  width: 60%;
+  height: auto;
+  margin: 0 auto;
+  object-fit: cover;
+}
