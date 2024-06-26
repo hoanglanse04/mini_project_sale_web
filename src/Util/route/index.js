@@ -9,7 +9,8 @@ import Aticle_02 from "../../pages/Aticle_02";
 import Aticle_03 from "../../pages/Aticle_03";
 import Aticle_04 from "../../pages/Aticle_04";
 import Aticle_05 from "../../pages/Aticle_05";
-import { Component } from "react";
+import ProductDetail from "../../pages/ProductDetails";
+
 
 
 
@@ -60,6 +61,10 @@ export const route = [
                 path :"Contact",
                 element: <Contact></Contact>
             },
+            {
+                path:'Product/:id',
+                element: <ProductDetail></ProductDetail>
+            }
         ]
     }
 ];
