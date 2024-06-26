@@ -1,21 +1,23 @@
 import '../Home/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState,useContext } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import promotionImg from '../../assets/images/promotion.jpg';
 import freeShipImg from '../../assets/images/freeship.jpg'
-// http://localhost:3001/products?q=${variable.q}&_page=${variable.page}&_limit=${variable.limit
+import { Link } from 'react-router-dom';
+
 
 export default function Home(){
 
   const [listSellProducts, setlistSellProducts] = useState([]);
   const [listDiscountProducts, setlistDiscountProducts] = useState([]);
-
+  
   
 
   const [visibleSellProducts, setVisibleSellProducts] = useState(8);
   const [visibleDiscountProducts, setVisibleDiscountProducts] = useState(8);
+
 
 
     useEffect(() => {
@@ -67,12 +69,14 @@ export default function Home(){
                   {listSellProducts.filter( item => item.rating >4.3).map(item => (
                     <Col xl={3} lg={3} md={6} sm={6} xs={12} key={item.id}>
                       <div className='product__item'>
+                      <Link to={`/product/${item.id}`}>
                       <h5 className='product__item--discount'>{item.rating}<i class="bi bi-star-fill"></i></h5>
                         <img src={item.thumbnail}></img>
                         <div className='product__item--desc'>
                           <h5 className='product__item--name'>{item.title}</h5>
                           <h5 className='product__item--price'>${item.price}</h5>
                         </div>
+                        </Link>
                       </div>
                     </Col>
                   ))}
@@ -94,12 +98,14 @@ export default function Home(){
                   {listDiscountProducts.filter(item => item.discountPercentage >= 10).map(item => (
                     <Col xl={3} lg={3} md={6} sm={6} xs={12} key={item.id}>
                       <div className='product__item'>
+                      <Link to={`/product/${item.id}`}>
                       <h5 className='product__item--discount'>{item.discountPercentage}%</h5>
                         <img src={item.thumbnail}></img>
                         <div className='product__item--desc'>
                           <h5 className='product__item--name'>{item.title}</h5>
                           <h5 className='product__item--price'>${item.price}</h5>
                         </div>
+                        </Link>
                       </div>
                     </Col>
                   ))}

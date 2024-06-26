@@ -234,6 +234,7 @@
     background-color: none;
     background-color: var(--main-bg-color);
     margin-top: 10px;
+    z-index: 100;
 }
 .navigation__products:hover .products__category{
     display:block;
