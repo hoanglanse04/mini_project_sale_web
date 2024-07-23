@@ -12,3 +12,22 @@
   flex-direction: row;
   align-items: center;
 }
+button{
+  background-color: white;
+  border: 0.5px solid rgb(195, 181, 181);
+}
+
+.btn__buy{
+  padding: 0.5rem 4rem;
+  background-color: #3FB4FB;
+  border: none;
+  border-radius: 5px;
+  color: rgb(222, 235, 176);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.ProductDesc{
+  padding: 10px;
+  border: 1px solid rgb(195, 181, 181);
+  color: rgb(43, 43, 38);
+}
