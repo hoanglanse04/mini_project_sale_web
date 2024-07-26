@@ -10,8 +10,8 @@ import Aticle_03 from "../../pages/Aticle_03";
 import Aticle_04 from "../../pages/Aticle_04";
 import Aticle_05 from "../../pages/Aticle_05";
 import ProductDetail from "../../pages/ProductDetails";
-
-
+import LoginPage from "../../pages/Login";
+import SignUp from "../../pages/SignUp";
 
 
 
@@ -25,6 +25,14 @@ export const route = [
                 index: true,
                 element: <Home></Home>
               },
+            {
+                path:"Login",
+                element :<LoginPage></LoginPage>
+            },
+            {
+                path:"SignUp",
+                element :<SignUp></SignUp>
+            },
             {
                 path :"About",
                 element: <About></About>

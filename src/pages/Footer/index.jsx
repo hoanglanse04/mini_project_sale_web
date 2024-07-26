@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../Footer/index.css';
+import '../Footer/Footer.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 

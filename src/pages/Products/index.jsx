@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { VariContext } from '../../VariContext';
+import { VariContext } from '../../Context/VariContext';
 import { useEffect, useState,useContext  } from 'react';
 import { Link } from 'react-router-dom';
 import './index.css'

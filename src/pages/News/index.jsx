@@ -3,7 +3,7 @@ import item_img_2 from '../../assets/images/news__item-2.webp';
 import item_img_3 from '../../assets/images/news__item-3.webp';
 import item_img_4 from '../../assets/images/news__item-4.webp';
 import item_img_5 from '../../assets/images/news__item-5.webp';
-import './index.css'
+import './News.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 

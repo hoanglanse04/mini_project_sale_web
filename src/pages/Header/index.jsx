@@ -1,17 +1,19 @@
-import "./index.css";
+import "./Header.css";
 import "../../base.css";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { useEffect, useState, useContext } from "react";
 import { Link } from 'react-router-dom';
 import logoImg from '../../assets/images/logo.png';
-import { VariContext } from '../../VariContext';
+import { VariContext } from '../../Context/VariContext';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from "../../Context/AuthContext";
 
 export default function Header() {
   const { vari, setVari } = useContext(VariContext);
   const navigate = useNavigate();
   var cartNumber = 0;
-
+  const { user } = useAuth(); 
+  const {logout} =useAuth();
   const handleClickNavi = () => {
     const navigationTablet = document.querySelector('.navigation-tablet__content');
     navigationTablet.style.display = 'none';
@@ -51,9 +53,18 @@ export default function Header() {
       <div className="topHead">
         <div className="container">
           <div className="topHead__login">
-            <h4>SIGN UP</h4>
-            <span>|</span>
-            <h4>SIGN IN</h4>
+            {user ? (
+              <div className="Welcome">
+               <h6>Welcome, {user.name}</h6>
+                <button onClick={logout}>Log out</button>
+              </div>
+              ) :(<>
+                <Link to='/SignUp'><h4>SIGN UP</h4></Link>
+                <span>|</span>
+                <Link to='/Login'><h4>SIGN IN</h4></Link>
+              </>)
+            }
+           
           </div>
 
           <div className="topHead__infor">

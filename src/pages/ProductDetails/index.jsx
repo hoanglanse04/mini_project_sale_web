@@ -1,12 +1,14 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.css';
+import './ProductDetail.css';
+import ModalProduct from '../../Components/ModalProduct';
 
 export default function ProductDetail() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:3001/products?id=${id}`)
@@ -43,7 +45,7 @@ export default function ProductDetail() {
               </div>
             </div>
           </div>
-          <div className="col-xl-4 col-lg-4 col-md-12">
+          <div className="col-xl-4 col-lg-4 col-md-12 text-center">
             <h1 style={{ paddingBottom: '1rem',color:'#3FB4FB' }}>{product.title}</h1>
             <div style={{ paddingBottom: '1rem' }} className="product-detail__info">
               <h2>${product.price}</h2>
@@ -56,9 +58,16 @@ export default function ProductDetail() {
               <input style={{border:'0.5px solid rgb(195, 181, 181)'}} className='text-center' type="text" value={quantity} readOnly />
               <button style={{marginLeft:'5px'}} onClick={() => handleQuantityChange('increment')}>+</button>
             </div>
-            <button type="button" className="btn__buy">
+            <div className="row">
+            <button type="button" className="btn__buy" onClick={()=>{setShowModal(true)}}>
               BUY NOW
             </button>
+            </div>
+            <div className="row">
+            <button type="button" className="btn__addToCart">
+              ADD TO CART
+            </button>
+            </div>
           </div>
         </div>
         <h5 style={{color:'#3FB4FB',paddingTop:'20px'}}>Description</h5>
@@ -66,6 +75,14 @@ export default function ProductDetail() {
           <p>{product.description}</p>
         </div>
       </div>
+      <ModalProduct
+        show={showModal}
+        product={product}
+        onClose={() => setShowModal(false)}
+        quantity={quantity}
+      >
+        
+      </ModalProduct>
     </div>
   );
 }
