@@ -126,7 +126,7 @@ const Cart = () => {
         </div>
       )}
       <div className="CartTotal  d-flex justify-content-end">
-        <h3>Total Amount: {getTotalPrice().toLocaleString()}đ</h3>
+        <h3>Total Amount: ${getTotalPrice().toLocaleString()}</h3>
       </div>
       <div className="CartActions d-flex justify-content-end">
         <button className="Cart__checkout" onClick={handleCheckout}>Proceed to Checkout</button>
