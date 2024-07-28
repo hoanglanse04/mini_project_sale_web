@@ -1821,12 +1821,328 @@
   ],
   "purchases": [
     {
-      "productId": 6,
-      "productTitle": "Calvin Klein CK One",
-      "quantity": 2,
-      "name": "lân",
-      "email": "hoanglando15",
+      "userId": 2,
+      "email": "hoanglando16@gmail.com",
+      "userName": "Đỗ Hoàng Lân _3C1",
+      "orderId": "1722089552466",
+      "items": [
+        {
+          "productId": 6,
+          "productName": "Calvin Klein CK One",
+          "quantity": 1,
+          "pricePerUnit": 49.99
+        }
+      ],
+      "totalAmount": 49.99,
       "id": 1
+    },
+    {
+      "userId": 2,
+      "orderId": "1722089568601",
+      "items": [
+        {
+          "productId": 1,
+          "productName": "Essence Mascara Lash Princess",
+          "quantity": 1,
+          "pricePerUnit": 9.99
+        },
+        {
+          "productId": 6,
+          "productName": "Calvin Klein CK One",
+          "quantity": 4,
+          "pricePerUnit": 49.99
+        }
+      ],
+      "totalAmount": 209.95000000000002,
+      "id": 2
+    },
+    {
+      "userId": 2,
+      "orderId": "1722089653546",
+      "items": [
+        {
+          "productId": 1,
+          "productName": "Essence Mascara Lash Princess",
+          "quantity": 1,
+          "pricePerUnit": 9.99
+        },
+        {
+          "productId": 6,
+          "productName": "Calvin Klein CK One",
+          "quantity": 4,
+          "pricePerUnit": 49.99
+        }
+      ],
+      "totalAmount": 209.95000000000002,
+      "id": 3
+    },
+    {
+      "userId": 2,
+      "orderId": "1722089772874",
+      "items": [
+        {
+          "productId": 1,
+          "productName": "Essence Mascara Lash Princess",
+          "quantity": 1,
+          "pricePerUnit": 9.99
+        },
+        {
+          "productId": 6,
+          "productName": "Calvin Klein CK One",
+          "quantity": 4,
+          "pricePerUnit": 49.99
+        }
+      ],
+      "totalAmount": 209.95000000000002,
+      "id": 4
+    },
+    {
+      "userId": 2,
+      "orderId": "1722089916490",
+      "items": [
+        {
+          "productId": 1,
+          "productName": "Essence Mascara Lash Princess",
+          "quantity": 1,
+          "pricePerUnit": 9.99
+        },
+        {
+          "productId": 6,
+          "productName": "Calvin Klein CK One",
+          "quantity": 4,
+          "pricePerUnit": 49.99
+        }
+      ],
+      "totalAmount": 209.95,
+      "id": 5
+    },
+    {
+      "userId": 2,
+      "orderId": "1722090019370",
+      "items": [
+        {
+          "productId": 6,
+          "productName": "Calvin Klein CK One",
+          "quantity": 4,
+          "pricePerUnit": 49.99
+        }
+      ],
+      "totalAmount": 199.96,
+      "id": 6
+    },
+    {
+      "userId": 2,
+      "orderId": "1722091262746",
+      "items": [
+        {
+          "productId": 6,
+          "productName": "Calvin Klein CK One",
+          "quantity": 2,
+          "pricePerUnit": 49.99
+        },
+        {
+          "productId": 2,
+          "productName": "Eyeshadow Palette with Mirror",
+          "quantity": 4,
+          "pricePerUnit": 19.99
+        }
+      ],
+      "totalAmount": 179.94,
+      "id": 7
+    },
+    {
+      "userId": 2,
+      "orderId": "1722091442361",
+      "items": [
+        {
+          "productId": 2,
+          "productName": "Eyeshadow Palette with Mirror",
+          "quantity": 1,
+          "pricePerUnit": 19.99
+        }
+      ],
+      "totalAmount": 19.99,
+      "id": 8
+    },
+    {
+      "userId": 2,
+      "orderId": "1722092556537",
+      "items": [
+        {
+          "productId": 2,
+          "productName": "Eyeshadow Palette with Mirror",
+          "quantity": 1,
+          "pricePerUnit": 19.99
+        },
+        {
+          "productId": 6,
+          "productName": "Calvin Klein CK One",
+          "quantity": 3,
+          "pricePerUnit": 49.99
+        }
+      ],
+      "totalAmount": 169.96,
+      "id": 9
+    },
+    {
+      "userId": 2,
+      "orderId": "1722093531710",
+      "items": [
+        {
+          "productId": 2,
+          "productName": "Eyeshadow Palette with Mirror",
+          "quantity": 1,
+          "pricePerUnit": 19.99
+        },
+        {
+          "productId": 3,
+          "productName": "Powder Canister",
+          "quantity": 1,
+          "pricePerUnit": 14.99
+        }
+      ],
+      "totalAmount": 34.98,
+      "id": 10
+    },
+    {
+      "userId": 2,
+      "email": "hoanglando16@gmail.com",
+      "userName": "Đỗ Hoàng Lân _3C1",
+      "orderId": "1722093585296",
+      "items": [
+        {
+          "productId": 6,
+          "productName": "Calvin Klein CK One",
+          "quantity": 1,
+          "pricePerUnit": 49.99
+        }
+      ],
+      "totalAmount": 49.99,
+      "id": 11
+    },
+    {
+      "userId": 2,
+      "email": "hoanglando16@gmail.com",
+      "userName": "Đỗ Hoàng Lân _3C1",
+      "orderId": "1722093803049",
+      "items": [
+        {
+          "productId": 6,
+          "productName": "Calvin Klein CK One",
+          "quantity": 1,
+          "pricePerUnit": 49.99
+        }
+      ],
+      "totalAmount": 49.99,
+      "id": 12
+    },
+    {
+      "userId": 2,
+      "email": "hoanglando16@gmail.com",
+      "userName": "Đỗ Hoàng Lân _3C1",
+      "orderId": "1722093806041",
+      "items": [
+        {
+          "productId": 6,
+          "productName": "Calvin Klein CK One",
+          "quantity": 1,
+          "pricePerUnit": 49.99
+        }
+      ],
+      "totalAmount": 49.99,
+      "id": 13
+    },
+    {
+      "userId": 2,
+      "email": "hoanglando16@gmail.com",
+      "userName": "Đỗ Hoàng Lân _3C1",
+      "orderId": "1722093836321",
+      "items": [
+        {
+          "productId": 6,
+          "productName": "Calvin Klein CK One",
+          "quantity": 1,
+          "pricePerUnit": 49.99
+        }
+      ],
+      "totalAmount": 49.99,
+      "id": 14
+    },
+    {
+      "userId": 2,
+      "email": "hoanglando16@gmail.com",
+      "userName": "Đỗ Hoàng Lân _3C1",
+      "orderId": "1722093950928",
+      "items": [
+        {
+          "productId": 6,
+          "productName": "Calvin Klein CK One",
+          "quantity": 1,
+          "pricePerUnit": 49.99
+        }
+      ],
+      "totalAmount": 49.99,
+      "id": 15
+    },
+    {
+      "userId": 2,
+      "email": "hoanglando16@gmail.com",
+      "userName": "Đỗ Hoàng Lân _3C1",
+      "orderId": "1722093973623",
+      "items": [
+        {
+          "productId": 6,
+          "productName": "Calvin Klein CK One",
+          "quantity": 1,
+          "pricePerUnit": 49.99
+        }
+      ],
+      "totalAmount": 49.99,
+      "id": 16
+    },
+    {
+      "userId": 2,
+      "orderId": "1722094002576",
+      "items": [
+        {
+          "productId": 6,
+          "productName": "Calvin Klein CK One",
+          "quantity": 3,
+          "pricePerUnit": 49.99
+        }
+      ],
+      "totalAmount": 149.97,
+      "id": 17
+    },
+    {
+      "userId": 2,
+      "orderId": "1722094040926",
+      "items": [
+        {
+          "productId": 2,
+          "productName": "Eyeshadow Palette with Mirror",
+          "quantity": 1,
+          "pricePerUnit": 19.99
+        }
+      ],
+      "totalAmount": 19.99,
+      "id": 18
+    },
+    {
+      "userId": 2,
+      "email": "hoanglando16@gmail.com",
+      "userName": "Đỗ Hoàng Lân _3C1",
+      "orderId": "1722145275089",
+      "items": [
+        {
+          "productId": 6,
+          "productName": "Calvin Klein CK One",
+          "quantity": 1,
+          "pricePerUnit": 49.99
+        }
+      ],
+      "totalAmount": 49.99,
+      "id": 19
     }
   ],
   "users": [

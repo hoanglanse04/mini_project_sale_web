@@ -1,46 +1,51 @@
 import React, { useState } from 'react';
-import './ModalProduct.css'; // Import CSS for custom styling
+import './ModalProduct.css';
+import { useAuth } from '../../Context/AuthContext';
 
 const ModalProduct = ({ show, onClose, product, quantity }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-  });
+  const { user } = useAuth();
+  const [successMessage, setSuccessMessage] = useState('');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  const handleConfirm = async () => {
+    if (!user) {
+      alert('You need to be logged in to complete the purchase.');
+      return;
+    }
 
-  const handleConfirm = () => {
-    // Send only id and title of the product along with the form data
-    console.log('Purchase Confirmed');
-    console.log('Product ID:', product.id);
-    console.log('Product Title:', product.title);
-    console.log('Quantity:', quantity);
-    console.log('Form Data:', formData);
-
-    // Example of sending data to an API (replace URL with your API endpoint)
-    fetch('http://localhost:3001/purchases', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
+    const postData = {
+      userId: user.id,
+      email: user.email,
+      userName: user.name,
+      orderId: Date.now().toString(),
+      items: [{
         productId: product.id,
-        productTitle: product.title,
+        productName: product.title,
         quantity,
-        ...formData,
-      }),
-    })
-    .then(res => res.json())
-    .then(data => {
-      console.log('Purchase saved:', data);
-      onClose();
-    })
-    .catch(error => {
+        pricePerUnit: product.price
+      }],
+      totalAmount: product.price * quantity
+    };
+
+    try {
+      const response = await fetch('http://localhost:3001/purchases', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(postData),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Purchase saved:', data);
+        setSuccessMessage('Purchase successful!'); 
+      } else {
+        throw new Error('Purchase failed');
+      }
+    } catch (error) {
       console.error('Error:', error);
-    });
+      setSuccessMessage('Error completing purchase. Please try again.');
+    }
   };
 
   if (!show) return null;
@@ -48,37 +53,23 @@ const ModalProduct = ({ show, onClose, product, quantity }) => {
   return (
     <div className="ModalProduct" onClick={onClose}>
       <div className="ModalProduct__content" onClick={(e) => e.stopPropagation()}>
-        <h2>Confirm Purchase</h2>
-        <p>Do you want to purchase {product.title}?</p>
-        <p>Quantity: {quantity}</p>
-        <p>Total: ${(product.price * quantity).toFixed(2)}</p>
-        <form>
-          <div className="form-group">
-            <label htmlFor="name">Name:</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
+        <h5 className='text-center'>Confirm Purchase</h5>
+        <h4>Do you want to purchase {product.title}?</h4>
+        <h4>Quantity: {quantity}</h4>
+        <span style={{padding:'5px',backgroundColor:'#FF6131',color:'white',borderRadius:'5px'}}>Total: ${(product.price * quantity).toFixed(2)}</span>
+        
+        {successMessage && (
+          <div className="ModalProduct__message">
+            <p>{successMessage}</p>
           </div>
-          <div className="form-group">
-            <label htmlFor="email">Email:</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-        </form>
+        )}
+
         <div className="ModalProduct__footer">
           <button onClick={onClose}>Close</button>
-          <button onClick={handleConfirm}>Confirm Purchase</button>
+          <button onClick={() => {
+            handleConfirm();
+            setTimeout(() => onClose(), 3000); 
+          }}>Confirm Purchase</button>
         </div>
       </div>
     </div>

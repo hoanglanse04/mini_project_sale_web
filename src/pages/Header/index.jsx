@@ -7,13 +7,14 @@ import logoImg from '../../assets/images/logo.png';
 import { VariContext } from '../../Context/VariContext';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from "../../Context/AuthContext";
+import CartContext from '../../Context/CartContext';
 
 export default function Header() {
   const { vari, setVari } = useContext(VariContext);
+  const { cart } = useContext(CartContext);
   const navigate = useNavigate();
-  var cartNumber = 0;
-  const { user } = useAuth(); 
-  const {logout} =useAuth();
+  const { user, logout } = useAuth();
+
   const handleClickNavi = () => {
     const navigationTablet = document.querySelector('.navigation-tablet__content');
     navigationTablet.style.display = 'none';
@@ -48,6 +49,9 @@ export default function Header() {
       })
   }, []);
 
+  // Calculate the number of unique product types in the cart
+  const uniqueProductCount = cart.length;
+
   return (
     <>
       <div className="topHead">
@@ -55,16 +59,16 @@ export default function Header() {
           <div className="topHead__login">
             {user ? (
               <div className="Welcome">
-               <h6>Welcome, {user.name}</h6>
+                <h6>Welcome, {user.name}</h6>
                 <button onClick={logout}>Log out</button>
               </div>
-              ) :(<>
+            ) : (
+              <>
                 <Link to='/SignUp'><h4>SIGN UP</h4></Link>
                 <span>|</span>
                 <Link to='/Login'><h4>SIGN IN</h4></Link>
-              </>)
-            }
-           
+              </>
+            )}
           </div>
 
           <div className="topHead__infor">
@@ -99,7 +103,9 @@ export default function Header() {
           <div className="midHead__cart">
             <div className="midHead__cart--item">
               <i className="bi bi-cart"></i>
-              <span> ({cartNumber}) products</span>
+              <Link to='/Cart'>
+                <span> ({uniqueProductCount}) products</span>
+              </Link>
             </div>
           </div>
         </div>
@@ -115,7 +121,7 @@ export default function Header() {
                 <a data-value='' onClick={handleChangeNav}><Link to='Products'>Products</Link><i className="bi bi-chevron-down"></i></a>
                 <ul className="products__category">
                   {categoryData.map(item => (
-                    <li data-value={item.slug} onClick={handleChangeNav} className="category__item">
+                    <li data-value={item.slug} onClick={handleChangeNav} className="category__item" key={item.id}>
                       {item.slug}
                     </li>
                   ))}
@@ -146,7 +152,9 @@ export default function Header() {
             <div className="midHead__cart">
               <div className="midHead__cart--item">
                 <i className="bi bi-cart"></i>
-                <span> ({cartNumber}) products</span>
+                <Link to='/Cart'>
+                  <span> ({uniqueProductCount}) products</span>
+                </Link>
               </div>
             </div>
           </div>

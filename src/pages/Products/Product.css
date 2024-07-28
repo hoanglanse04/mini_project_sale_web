@@ -47,3 +47,6 @@
 .paginate button{
   width: 50px;
 }
+.listProduct button{
+  background-color: #3FB4FB;
+}

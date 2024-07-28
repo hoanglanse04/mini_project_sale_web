@@ -12,7 +12,7 @@ import Aticle_05 from "../../pages/Aticle_05";
 import ProductDetail from "../../pages/ProductDetails";
 import LoginPage from "../../pages/Login";
 import SignUp from "../../pages/SignUp";
-
+import Cart from "../../pages/Cart"
 
 
 
@@ -32,6 +32,10 @@ export const route = [
             {
                 path:"SignUp",
                 element :<SignUp></SignUp>
+            },
+            {
+                path:"Cart",
+                element :<Cart></Cart>
             },
             {
                 path :"About",
