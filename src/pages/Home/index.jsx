@@ -1,4 +1,4 @@
-import '../Home/index.css';
+import '../Home/Home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState,useContext } from 'react';
 import Row from 'react-bootstrap/Row';

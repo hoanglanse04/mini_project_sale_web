@@ -1,10 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { VariContext } from '../../VariContext';
+import { VariContext } from '../../Context/VariContext';
 import { useEffect, useState,useContext  } from 'react';
 import { Link } from 'react-router-dom';
-import './index.css'
+import './Product.css'
 import { useNavigate } from 'react-router-dom';
 
 
@@ -98,7 +98,7 @@ export default function Products(props){
                                 <h5 className='product__item--name'>{item.title}</h5>
                                 <h5 className='product__item--price'>${item.price}</h5>
                               </div>
-                              <button>Mua ngay</button>
+                              <button>Buy Now</button>
                               </Link>
                             </div>
                           </Col>

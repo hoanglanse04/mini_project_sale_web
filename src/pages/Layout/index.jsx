@@ -1,7 +1,7 @@
 import Header from "../Header"
 import  Footer  from "../Footer"
 import { Outlet } from "react-router-dom"
-import { VariContext } from "../../VariContext";  
+import { VariContext } from "../../Context/VariContext";  
 import { useState } from "react";
 
 

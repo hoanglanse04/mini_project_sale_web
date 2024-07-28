@@ -1,4 +1,4 @@
-import './index.css';
+import './About.css';
 
 export default function About(){
 

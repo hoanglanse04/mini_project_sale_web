@@ -12,17 +12,23 @@
   flex-direction: row;
   align-items: center;
 }
-button{
-  background-color: white;
-  border: 0.5px solid rgb(195, 181, 181);
-}
 
-.btn__buy{
+.btn__buy {
   padding: 0.5rem 4rem;
   background-color: #3FB4FB;
   border: none;
   border-radius: 5px;
-  color: rgb(222, 235, 176);
+  color: rgb(249, 249, 249);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.btn__addToCart{
+  margin-top: 10px;
+  padding: 0.5rem 4rem;
+  background-color: #FF6131;
+  border: none;
+  border-radius: 5px;
+  color: #ffff;
   font-size: 0.8rem;
   font-weight: 700;
 }
