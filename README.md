@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# Dự Án Web Bán Hàng
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Đây là một dự án web bán hàng được xây dựng bằng React. Dự án cung cấp một giao diện người dùng hiện đại để duyệt và mua sản phẩm.
 
-## Available Scripts
+## Mục Lục
 
-In the project directory, you can run:
+- [Giới Thiệu](#giới-thiệu)
+- [Tính Năng](#tính-năng)
+- [Cài Đặt](#cài-đặt)
+- [Cấu Trúc Dự Án](#cấu-trúc-dự-án)
+- [Sử Dụng](#sử-dụng)
 
-### `npm start`
+## Giới Thiệu
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Dự án này là một ứng dụng web bán hàng được xây dựng bằng React. Nó bao gồm các tính năng chính như xem sản phẩm, thêm sản phẩm vào giỏ hàng, và thực hiện thanh toán. Giao diện người dùng thân thiện và dễ sử dụng giúp khách hàng dễ dàng duyệt và mua sắm sản phẩm.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tính Năng
 
-### `npm test`
+- Xem danh sách sản phẩm với thông tin chi tiết
+- Thêm sản phẩm vào giỏ hàng
+- Xem và quản lý giỏ hàng
+- Thanh toán và hoàn tất đơn hàng
+- Lọc sản phẩm
+- Đăng nhập và đăng ký tài khoản
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Cài Đặt
 
-### `npm run build`
+### Yêu Cầu
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js (phiên bản 14.x trở lên)
+- npm hoặc yarn
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Cài Đặt Cơ Bản
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Clone Repository**
 
-### `npm run eject`
+    ```bash
+    git clone https://github.com/hoanglanse04/mini_project_sale_web
+    cd mini_project_sale_web
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Cài Đặt Các Gói Phụ Thuộc**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    Sử dụng npm:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    ```bash
+    npm install
+    ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    Hoặc sử dụng yarn:
 
-## Learn More
+    ```bash
+    yarn install
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. **Chạy Ứng Dụng**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    Ứng dụng sẽ được chạy tại [http://localhost:3000](http://localhost:3000).
 
-### Code Splitting
+    Sử dụng API tại [http://localhost:3001](http://localhost:3001). Chạy câu lệnh sau để khởi động json-server:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    ```bash
+    json-server --watch db.json --port 3001
+    ```
 
-### Analyzing the Bundle Size
+## Cấu Trúc Dự Án
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+/src
+  /components        # Các thành phần giao diện người dùng
+  /pages             # Các trang của ứng dụng
+  /utils             # Các tiện ích và hàm chung
+  /context           # Các context sử dụng
+  /assets            # Các thành phần truy cập tự dự án
+  App.js             # Thành phần chính của ứng dụng
+  index.js           # Điểm vào của ứng dụng
+## Sử Dụng
 
-### Making a Progressive Web App
+1. **Tạo và Quản Lý Sản Phẩm**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    - Truy cập vào trang sản phẩm để xem danh sách và chi tiết sản phẩm.
+    - Thêm sản phẩm vào giỏ hàng bằng cách nhấp vào nút "Thêm vào giỏ hàng".
 
-### Advanced Configuration
+2. **Quản Lý Giỏ Hàng**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+    - Xem giỏ hàng bằng cách nhấp vào biểu tượng giỏ hàng.
+    - Thay đổi số lượng sản phẩm hoặc xóa sản phẩm khỏi giỏ hàng.
 
-### Deployment
+3. **Thanh Toán**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    - Nhấp vào nút "Thanh toán" để hoàn tất đơn hàng.
+    - Nhập thông tin giao hàng và chọn phương thức thanh toán.
