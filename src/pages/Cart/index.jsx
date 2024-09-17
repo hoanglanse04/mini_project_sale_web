@@ -8,7 +8,8 @@ const Cart = () => {
   const { cart, dispatch } = useContext(CartContext);
   const { user } = useAuth();
   const navigate = useNavigate();
-  const [message, setMessage] = useState(''); 
+  const [message, setMessage] = useState('');
+  const [showModal, setShowModal] = useState(false); // State to manage modal visibility
 
   const handleQuantityChange = (id, operation) => {
     dispatch({
@@ -69,6 +70,7 @@ const Cart = () => {
         console.log('Purchase saved:', data);
         setMessage('Purchase successful!'); // Hiển thị thông báo thành công
         dispatch({ type: 'CLEAR_CART' });
+        setShowModal(false); // Close the modal after successful purchase
       } else {
         setMessage('Purchase failed. Please try again.');
       }
@@ -129,8 +131,23 @@ const Cart = () => {
         <h3>Total Amount: ${getTotalPrice().toLocaleString()}</h3>
       </div>
       <div className="CartActions d-flex justify-content-end">
-        <button className="Cart__checkout" onClick={handleCheckout}>Proceed to Checkout</button>
+        <button className="Cart__checkout" onClick={() => setShowModal(true)}>Proceed to Checkout</button>
       </div>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="modal" onClick={() => setShowModal(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <h2>Confirm Purchase</h2>
+            <p>Are you sure you want to proceed with the purchase?</p>
+            <div className="modalBtn">
+            <button onClick={handleCheckout}>Yes</button>
+            <button onClick={() => setShowModal(false)}>No</button>
+            </div>
+         
+          </div>
+        </div>
+      )}
     </div>
   );
 };

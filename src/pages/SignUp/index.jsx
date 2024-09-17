@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './SignUp.css';
 
 const SignUp = () => {
@@ -7,6 +8,7 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,6 +32,7 @@ const SignUp = () => {
         setEmail('');
         setPassword('');
         setConfirmPassword('');
+        navigate('/login'); // Redirect to /login
       })
       .catch(error => {
         setMessage('Registration failed.');
@@ -91,7 +94,7 @@ const SignUp = () => {
                 required
               />
             </div>
-            <button className='btn_register' type="submit">Register</button>
+            <button style={{marginTop:'30px'}} className='btn_register' type="submit">Register</button>
           </form>
           {message && <p>{message}</p>}
         </div>

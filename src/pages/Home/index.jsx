@@ -15,7 +15,7 @@ export default function Home(){
   
   
 
-  const [visibleSellProducts, setVisibleSellProducts] = useState(8);
+  const [visibleSellProducts, setVisibleSellProducts] = useState(20);
   const [visibleDiscountProducts, setVisibleDiscountProducts] = useState(8);
 
 

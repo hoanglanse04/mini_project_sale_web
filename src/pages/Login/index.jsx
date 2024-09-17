@@ -55,7 +55,15 @@ const LoginPage = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}/>
         </div>
-        <button onClick={handleLogin}>Login</button>
+        <div className="" style={{display:"flex",justifyContent:"space-between"}}>
+        <button style={{width:'30%'}} onClick={handleLogin}>Login</button>
+        <button style={{width:'30%'}} onClick={ ()=>{
+          navigate('/SignUp')
+        }
+        }>Sign Up</button>
+        </div>
+     
+
       {error && <p>{error}</p>}
     </div>
     </div>
